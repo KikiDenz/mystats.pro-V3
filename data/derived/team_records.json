@@ -1,1 +1,317 @@
-[]
+[
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "stat": "pts",
+    "records": [
+      {
+        "player_id": "11-j-todd",
+        "value": 21.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "5-j-owen",
+        "value": 15.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "37-k-denzin",
+        "value": 14.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "28-f-wendtman",
+        "value": 14.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "2-c-beamish",
+        "value": 10.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "43-l-denzin",
+        "value": 5.0,
+        "date": "2025-12-02"
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "stat": "fg_pct",
+    "records": [
+      {
+        "player_id": "11-j-todd",
+        "value": 62.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "28-f-wendtman",
+        "value": 46.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "5-j-owen",
+        "value": 42.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "2-c-beamish",
+        "value": 40.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "37-k-denzin",
+        "value": 32.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "43-l-denzin",
+        "value": 20.0,
+        "date": "2025-12-02"
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "stat": "ft_pct",
+    "records": [
+      {
+        "player_id": "11-j-todd",
+        "value": 33.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "2-c-beamish",
+        "value": 33.0,
+        "date": "2025-12-02"
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "stat": "oreb",
+    "records": [
+      {
+        "player_id": "11-j-todd",
+        "value": 6.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "37-k-denzin",
+        "value": 3.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "28-f-wendtman",
+        "value": 2.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "2-c-beamish",
+        "value": 2.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "43-l-denzin",
+        "value": 2.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "5-j-owen",
+        "value": 1.0,
+        "date": "2025-12-02"
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "stat": "dreb",
+    "records": [
+      {
+        "player_id": "5-j-owen",
+        "value": 7.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "11-j-todd",
+        "value": 6.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "43-l-denzin",
+        "value": 5.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "2-c-beamish",
+        "value": 3.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "37-k-denzin",
+        "value": 2.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "28-f-wendtman",
+        "value": 1.0,
+        "date": "2025-12-02"
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "stat": "reb",
+    "records": [
+      {
+        "player_id": "11-j-todd",
+        "value": 12.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "5-j-owen",
+        "value": 8.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "43-l-denzin",
+        "value": 7.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "37-k-denzin",
+        "value": 5.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "2-c-beamish",
+        "value": 5.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "28-f-wendtman",
+        "value": 3.0,
+        "date": "2025-12-02"
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "stat": "stl",
+    "records": [
+      {
+        "player_id": "37-k-denzin",
+        "value": 8.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "11-j-todd",
+        "value": 5.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "5-j-owen",
+        "value": 4.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "43-l-denzin",
+        "value": 2.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "28-f-wendtman",
+        "value": 1.0,
+        "date": "2025-12-02"
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "stat": "blk",
+    "records": [
+      {
+        "player_id": "2-c-beamish",
+        "value": 2.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "11-j-todd",
+        "value": 1.0,
+        "date": "2025-12-02"
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "stat": "turnovers",
+    "records": [
+      {
+        "player_id": "5-j-owen",
+        "value": 2.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "37-k-denzin",
+        "value": 2.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "2-c-beamish",
+        "value": 2.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "11-j-todd",
+        "value": 1.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "43-l-denzin",
+        "value": 1.0,
+        "date": "2025-12-02"
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "stat": "fg3_pct",
+    "records": [
+      {
+        "player_id": "2-c-beamish",
+        "value": 50.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "5-j-owen",
+        "value": 42.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "28-f-wendtman",
+        "value": 29.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "37-k-denzin",
+        "value": 22.0,
+        "date": "2025-12-02"
+      },
+      {
+        "player_id": "43-l-denzin",
+        "value": 12.0,
+        "date": "2025-12-02"
+      }
+    ]
+  }
+]

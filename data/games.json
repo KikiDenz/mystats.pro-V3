@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": "game-2025-12-02-pretty-good",
+    "team_id": "pretty-good",
+    "date": "2025-12-02",
+    "season": "2025 Spring",
+    "type": "regular",
+    "score": 79,
+    "opp": "monstars",
+    "opp_score": 40,
+    "boxscore_json": "data\\boxscores\\game-2025-12-02-pretty-good.json"
+  }
+]
