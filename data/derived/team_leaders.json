@@ -1,1 +1,794 @@
-[]
+[
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "pts",
+    "leaders": [
+      {
+        "player_id": "josh-todd",
+        "value": 21.0
+      },
+      {
+        "player_id": "jarren-owen",
+        "value": 15.0
+      },
+      {
+        "player_id": "kyle-denzin",
+        "value": 14.0
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 14.0
+      },
+      {
+        "player_id": "callan-beamish",
+        "value": 10.0
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 5.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "fgm",
+    "leaders": [
+      {
+        "player_id": "josh-todd",
+        "value": 10.0
+      },
+      {
+        "player_id": "kyle-denzin",
+        "value": 6.0
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 6.0
+      },
+      {
+        "player_id": "jarren-owen",
+        "value": 5.0
+      },
+      {
+        "player_id": "callan-beamish",
+        "value": 4.0
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 2.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "fga",
+    "leaders": [
+      {
+        "player_id": "kyle-denzin",
+        "value": 19.0
+      },
+      {
+        "player_id": "josh-todd",
+        "value": 16.0
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 13.0
+      },
+      {
+        "player_id": "jarren-owen",
+        "value": 12.0
+      },
+      {
+        "player_id": "callan-beamish",
+        "value": 10.0
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "fg_pct",
+    "leaders": [
+      {
+        "player_id": "josh-todd",
+        "value": 62.5
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 46.15384615384615
+      },
+      {
+        "player_id": "jarren-owen",
+        "value": 41.66666666666667
+      },
+      {
+        "player_id": "callan-beamish",
+        "value": 40.0
+      },
+      {
+        "player_id": "kyle-denzin",
+        "value": 31.57894736842105
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 20.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "fg3m",
+    "leaders": [
+      {
+        "player_id": "jarren-owen",
+        "value": 5.0
+      },
+      {
+        "player_id": "kyle-denzin",
+        "value": 2.0
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 2.0
+      },
+      {
+        "player_id": "callan-beamish",
+        "value": 1.0
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 1.0
+      },
+      {
+        "player_id": "josh-todd",
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "fg3a",
+    "leaders": [
+      {
+        "player_id": "jarren-owen",
+        "value": 12.0
+      },
+      {
+        "player_id": "kyle-denzin",
+        "value": 9.0
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 8.0
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 7.0
+      },
+      {
+        "player_id": "josh-todd",
+        "value": 2.0
+      },
+      {
+        "player_id": "callan-beamish",
+        "value": 2.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "fg3_pct",
+    "leaders": [
+      {
+        "player_id": "callan-beamish",
+        "value": 50.0
+      },
+      {
+        "player_id": "jarren-owen",
+        "value": 41.66666666666667
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 28.57142857142857
+      },
+      {
+        "player_id": "kyle-denzin",
+        "value": 22.22222222222222
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 12.5
+      },
+      {
+        "player_id": "josh-todd",
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "ftm",
+    "leaders": [
+      {
+        "player_id": "josh-todd",
+        "value": 1.0
+      },
+      {
+        "player_id": "callan-beamish",
+        "value": 1.0
+      },
+      {
+        "player_id": "jarren-owen",
+        "value": 0.0
+      },
+      {
+        "player_id": "kyle-denzin",
+        "value": 0.0
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 0.0
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "fta",
+    "leaders": [
+      {
+        "player_id": "josh-todd",
+        "value": 3.0
+      },
+      {
+        "player_id": "callan-beamish",
+        "value": 3.0
+      },
+      {
+        "player_id": "jarren-owen",
+        "value": 0.0
+      },
+      {
+        "player_id": "kyle-denzin",
+        "value": 0.0
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 0.0
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "ft_pct",
+    "leaders": [
+      {
+        "player_id": "josh-todd",
+        "value": 33.33333333333333
+      },
+      {
+        "player_id": "callan-beamish",
+        "value": 33.33333333333333
+      },
+      {
+        "player_id": "jarren-owen",
+        "value": 0.0
+      },
+      {
+        "player_id": "kyle-denzin",
+        "value": 0.0
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 0.0
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "oreb",
+    "leaders": [
+      {
+        "player_id": "josh-todd",
+        "value": 6.0
+      },
+      {
+        "player_id": "kyle-denzin",
+        "value": 3.0
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 2.0
+      },
+      {
+        "player_id": "callan-beamish",
+        "value": 2.0
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 2.0
+      },
+      {
+        "player_id": "jarren-owen",
+        "value": 1.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "dreb",
+    "leaders": [
+      {
+        "player_id": "jarren-owen",
+        "value": 7.0
+      },
+      {
+        "player_id": "josh-todd",
+        "value": 6.0
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 5.0
+      },
+      {
+        "player_id": "callan-beamish",
+        "value": 3.0
+      },
+      {
+        "player_id": "kyle-denzin",
+        "value": 2.0
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 1.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "reb",
+    "leaders": [
+      {
+        "player_id": "josh-todd",
+        "value": 12.0
+      },
+      {
+        "player_id": "jarren-owen",
+        "value": 8.0
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 7.0
+      },
+      {
+        "player_id": "kyle-denzin",
+        "value": 5.0
+      },
+      {
+        "player_id": "callan-beamish",
+        "value": 5.0
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 3.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "ast",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 9.0
+      },
+      {
+        "player_id": "callan-beamish",
+        "value": 5.0
+      },
+      {
+        "player_id": "kyle-denzin",
+        "value": 4.0
+      },
+      {
+        "player_id": "josh-todd",
+        "value": 3.0
+      },
+      {
+        "player_id": "jarren-owen",
+        "value": 3.0
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 2.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "stl",
+    "leaders": [
+      {
+        "player_id": "kyle-denzin",
+        "value": 8.0
+      },
+      {
+        "player_id": "josh-todd",
+        "value": 5.0
+      },
+      {
+        "player_id": "jarren-owen",
+        "value": 4.0
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 2.0
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 1.0
+      },
+      {
+        "player_id": "callan-beamish",
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "blk",
+    "leaders": [
+      {
+        "player_id": "callan-beamish",
+        "value": 2.0
+      },
+      {
+        "player_id": "josh-todd",
+        "value": 1.0
+      },
+      {
+        "player_id": "jarren-owen",
+        "value": 0.0
+      },
+      {
+        "player_id": "kyle-denzin",
+        "value": 0.0
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 0.0
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "turnovers",
+    "leaders": [
+      {
+        "player_id": "jarren-owen",
+        "value": 2.0
+      },
+      {
+        "player_id": "kyle-denzin",
+        "value": 2.0
+      },
+      {
+        "player_id": "callan-beamish",
+        "value": 2.0
+      },
+      {
+        "player_id": "josh-todd",
+        "value": 1.0
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 1.0
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "team_id": "pretty-good",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "pf",
+    "leaders": [
+      {
+        "player_id": "josh-todd",
+        "value": 0.0
+      },
+      {
+        "player_id": "jarren-owen",
+        "value": 0.0
+      },
+      {
+        "player_id": "kyle-denzin",
+        "value": 0.0
+      },
+      {
+        "player_id": "findlay-wendtman",
+        "value": 0.0
+      },
+      {
+        "player_id": "callan-beamish",
+        "value": 0.0
+      },
+      {
+        "player_id": "levi-denzin",
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "pts",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 14.0
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "fgm",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 6.0
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "fga",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 13.0
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "fg_pct",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 46.15384615384615
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "fg3m",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 2.0
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "fg3a",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 7.0
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "fg3_pct",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 28.57142857142857
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "ftm",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "fta",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "ft_pct",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "oreb",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 2.0
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "dreb",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 1.0
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "reb",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 3.0
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "ast",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 9.0
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "stl",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 1.0
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "blk",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "turnovers",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "team_id": "chuckers-chuckers",
+    "season": "2025 Spring",
+    "type": "regular",
+    "stat": "pf",
+    "leaders": [
+      {
+        "player_id": "findlay-wendtman",
+        "value": 0.0
+      }
+    ]
+  }
+]
