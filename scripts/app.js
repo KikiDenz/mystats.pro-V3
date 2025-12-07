@@ -358,14 +358,6 @@ async function renderTeam(teamIdParam) {
 
         container.insertAdjacentHTML("beforeend", leadersHtml);
       }
-v>
-                <div class="small-muted">${label(astLead?.player_id)}</div>
-              </div>
-            </div>
-          </div>
-        `
-        );
-      }
     } else if (tabName === "roster") {
       const rosterPlayers = players.filter((p) =>
         (p.teams || []).includes(team.id)
@@ -893,7 +885,7 @@ async function renderBoxscore(gameId) {
                         <td>${p.number || ""}</td>
                         <td><a href="#/player/${p.player_id}">${p.name || p.player_id}</a></td>
                         <td>${s.pts ?? ""}</td>
-                        <td>${s.reb ?? s.oreb + (s.dreb || 0) || ""}</td>
+                        <td>${(s.reb ?? (s.oreb + (s.dreb || 0))) || ""}</td>
                         <td>${s.ast ?? ""}</td>
                         <td>${fg}</td>
                         <td>${th}</td>
