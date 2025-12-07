@@ -292,7 +292,10 @@ async function renderTeam(teamIdParam) {
         teamLeaders.find(
           (g) =>
             keys.includes(g.team_id) &&
-            (!season || g.season ==if (group) {
+            (!season || g.season === season)
+        );
+
+      if (group) {
         const ptsLead = group.leaders_per_game.pts?.[0];
         const rebLead = group.leaders_per_game.reb?.[0];
         const astLead = group.leaders_per_game.ast?.[0];
