@@ -195,12 +195,17 @@ async function renderTeam(teamIdParam) {
         <img class="logo" src="${
           team.logo || "assets/team-placeholder.png"
         }" alt="${team.name}">
-        <div>
-          <div class="title">${team.name}</div>
+        <div class="header-main">
+          <div class="header-top-row">
+            <div class="title">${team.name}</div>
+            ${
+              team.season_meta?.league
+                ? `<span class="chip chip-light">${team.season_meta.league}</span>`
+                : ""
+            }
+          </div>
           <div class="subtitle">
-            ${team.season_meta?.league || ""}${
-    team.season_meta?.current_season ? " · " + team.season_meta.current_season : ""
-  }
+            ${team.season_meta?.current_season || ""}
           </div>
         </div>
       </div>
@@ -287,14 +292,7 @@ async function renderTeam(teamIdParam) {
         teamLeaders.find(
           (g) =>
             keys.includes(g.team_id) &&
-            (!season || g.season === season) &&
-            g.type === "regular"
-        ) ||
-        teamLeaders.find(
-          (g) => keys.includes(g.team_id) && g.type === "regular"
-        );
-
-      if (group) {
+            (!season || g.season ==if (group) {
         const ptsLead = group.leaders_per_game.pts?.[0];
         const rebLead = group.leaders_per_game.reb?.[0];
         const astLead = group.leaders_per_game.ast?.[0];
@@ -302,34 +300,62 @@ async function renderTeam(teamIdParam) {
 
         const label = (pid) =>
           playersIndex[pid]?.display_name || pid || "—";
+        const avatar = (pid) =>
+          playersIndex[pid]?.images?.portrait ||
+          "assets/player-placeholder.png";
 
-        container.insertAdjacentHTML(
-          "beforeend",
-          `
+        const leadersHtml = `
           <div class="section">
             <div class="h3-label">Per-Game Leaders${
               group.season ? " – " + group.season : ""
             }</div>
             <div class="tiles">
-              <div class="card card--bright">
-                <div class="small">PTS</div>
-                <div style="font-size:1.4rem;font-weight:700">${fmt(
-                  ptsLead?.value
-                )}</div>
-                <div class="small-muted">${label(ptsLead?.player_id)}</div>
-              </div>
-              <div class="card card--bright">
-                <div class="small">REB</div>
-                <div style="font-size:1.4rem;font-weight:700">${fmt(
-                  rebLead?.value
-                )}</div>
-                <div class="small-muted">${label(rebLead?.player_id)}</div>
-              </div>
-              <div class="card card--bright">
-                <div class="small">AST</div>
-                <div style="font-size:1.4rem;font-weight:700">${fmt(
-                  astLead?.value
-                )}</div>
+              ${
+                ptsLead
+                  ? `
+              <div class="card card--bright leader-card">
+                <div class="small">PPG</div>
+                <div class="leader-card-value">${fmt(ptsLead.value)}</div>
+                <img class="leader-card-avatar" src="${avatar(
+                  ptsLead.player_id
+                )}" alt="${label(ptsLead.player_id)}">
+                <div class="small-muted">${label(ptsLead.player_id)}</div>
+              </div>`
+                  : ""
+              }
+              ${
+                rebLead
+                  ? `
+              <div class="card card--bright leader-card">
+                <div class="small">RPG</div>
+                <div class="leader-card-value">${fmt(rebLead.value)}</div>
+                <img class="leader-card-avatar" src="${avatar(
+                  rebLead.player_id
+                )}" alt="${label(rebLead.player_id)}">
+                <div class="small-muted">${label(rebLead.player_id)}</div>
+              </div>`
+                  : ""
+              }
+              ${
+                astLead
+                  ? `
+              <div class="card card--bright leader-card">
+                <div class="small">APG</div>
+                <div class="leader-card-value">${fmt(astLead.value)}</div>
+                <img class="leader-card-avatar" src="${avatar(
+                  astLead.player_id
+                )}" alt="${label(astLead.player_id)}">
+                <div class="small-muted">${label(astLead.player_id)}</div>
+              </div>`
+                  : ""
+              }
+            </div>
+          </div>
+        `;
+
+        container.insertAdjacentHTML("beforeend", leadersHtml);
+      }
+v>
                 <div class="small-muted">${label(astLead?.player_id)}</div>
               </div>
             </div>
@@ -563,16 +589,20 @@ async function renderPlayer(playerId) {
         <img class="logo" src="${
           player.images?.portrait || "assets/player-placeholder.png"
         }" alt="${player.display_name}">
-        <div>
-          <div class="title">${player.display_name} ${
+        <div class="header-main">
+          <div class="header-top-row">
+            <div class="title">${player.display_name} ${
     player.number ? `<span class="small-muted">#${player.number}</span>` : ""
   }</div>
+            ${
+              primaryTeam
+                ? `<span class="chip chip-light">${primaryTeam.name}</span>`
+                : ""
+            }
+          </div>
           <div class="subtitle">
             ${(player.position || "") +
               (player.height_cm ? ` · ${player.height_cm} cm` : "")}
-          </div>
-          <div class="small-muted">
-            ${(player.teams || []).join(", ")}
           </div>
         </div>
       </div>
@@ -834,46 +864,44 @@ async function renderBoxscore(gameId) {
     const teamData = box.teams[teamName] || {};
     const players = teamData.players || [];
     return `
-      <div class="card" style="margin-top:10px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-          <div style="font-weight:600">${teamName}</div>
-          <div class="small-muted">PTS ${
-            teamData.team_totals?.pts ?? ""
-          }</div>
-        </div>
-        <div class="scroll-x">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th><th>Player</th><th>PTS</th><th>REB</th><th>AST</th>
-                <th>FG</th><th>3PT</th><th>FT</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${players
-                .map((p) => {
-                  const s = p.stats || {};
-                  const fg = `${s.fgm || 0}/${s.fga || 0}`;
-                  const th = `${s.fg3m || 0}/${s.fg3a || 0}`;
-                  const ft = `${s.ftm || 0}/${s.fta || 0}`;
-                  return `
-                    <tr>
-                      <td>${p.number || ""}</td>
-                      <td><a href="#/player/${p.player_id}">${
-                    p.name || p.player_id
-                  }</a></td>
-                      <td>${s.pts ?? ""}</td>
-                      <td>${(s.reb ?? (s.oreb + (s.dreb || 0))) || ""}</td>
-                      <td>${s.ast ?? ""}</td>
-                      <td>${fg}</td>
-                      <td>${th}</td>
-                      <td>${ft}</td>
-                    </tr>
-                  `;
-                })
-                .join("")}
-            </tbody>
-          </table>
+      <div>
+        <div class="card" style="margin-top:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <div style="font-weight:600">${teamName}</div>
+            <div class="small-muted">PTS ${teamData.team_totals?.pts ?? ""}</div>
+          </div>
+          <div class="scroll-x">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th><th>Player</th><th>PTS</th><th>REB</th><th>AST</th>
+                    <th>FG</th><th>3PT</th><th>FT</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${players
+                    .map((p) => {
+                      const s = p.stats || {};
+                      const fg = `${s.fgm || 0}/${s.fga || 0}`;
+                      const th = `${s.fg3m || 0}/${s.fg3a || 0}`;
+                      const ft = `${s.ftm || 0}/${s.fta || 0}`;
+                      return `
+                      <tr>
+                        <td>${p.number || ""}</td>
+                        <td><a href="#/player/${p.player_id}">${p.name || p.player_id}</a></td>
+                        <td>${s.pts ?? ""}</td>
+                        <td>${s.reb ?? s.oreb + (s.dreb || 0) || ""}</td>
+                        <td>${s.ast ?? ""}</td>
+                        <td>${fg}</td>
+                        <td>${th}</td>
+                        <td>${ft}</td>
+                      </tr>
+                    `;
+                    })
+                    .join("")}
+                </tbody>
+              </table>
+            </div>
         </div>
       </div>
     `;
@@ -883,15 +911,10 @@ async function renderBoxscore(gameId) {
     <div class="container">
       <div class="header">
         <div>
-          <div class="title">${awayTeamName} ${
-    box.away_score ?? ""
-  } @ ${homeTeamName} ${box.home_score ?? ""}</div>
-          <div class="subtitle">${box.date || game.date} · ${
-    game.type || ""
-  } · ${game.venue || ""}</div>
+          <div class="title">${awayTeamName} ${box.away_score ?? ""} @ ${homeTeamName} ${box.home_score ?? ""}</div>
+          <div class="subtitle">${box.date || game.date} · ${game.type || ""} · ${game.venue || ""}</div>
         </div>
       </div>
-
       <div class="section">
         ${renderTeamBlock(homeTeamName)}
         ${renderTeamBlock(awayTeamName)}

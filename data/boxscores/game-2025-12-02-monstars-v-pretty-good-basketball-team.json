@@ -1,0 +1,222 @@
+{
+  "game_id": "game-2025-12-02-monstars-v-pretty-good-basketball-team",
+  "date": "2025-12-02",
+  "home_team": "Pretty Good Basketball Team",
+  "away_team": "monstars",
+  "home_score": 79,
+  "away_score": 40,
+  "teams": {
+    "Monstars": {
+      "players": [
+        {
+          "player_id": "11-j-todd",
+          "name": "J. Todd",
+          "number": "11",
+          "stats": {
+            "": 0,
+            "fgm": 10,
+            "fga": 16,
+            "fg3m": 0,
+            "fg3a": 0,
+            "ftm": 1,
+            "fta": 3,
+            "oreb": 6,
+            "dreb": 6,
+            "fouls": 0,
+            "stl": 5,
+            "turnovers": 1,
+            "blk": 1,
+            "ast": 3,
+            "pts": 21,
+            "reb": 12
+          }
+        },
+        {
+          "player_id": "5-j-owen",
+          "name": "J. Owen",
+          "number": "5",
+          "stats": {
+            "": 0,
+            "fgm": 5,
+            "fga": 12,
+            "fg3m": 0,
+            "fg3a": 0,
+            "ftm": 0,
+            "fta": 0,
+            "oreb": 1,
+            "dreb": 7,
+            "fouls": 0,
+            "stl": 4,
+            "turnovers": 2,
+            "blk": 0,
+            "ast": 3,
+            "pts": 15,
+            "reb": 8
+          }
+        },
+        {
+          "player_id": "37-k-denzin",
+          "name": "K. Denzin",
+          "number": "37",
+          "stats": {
+            "": 0,
+            "fgm": 6,
+            "fga": 19,
+            "fg3m": 0,
+            "fg3a": 0,
+            "ftm": 0,
+            "fta": 0,
+            "oreb": 3,
+            "dreb": 2,
+            "fouls": 0,
+            "stl": 8,
+            "turnovers": 2,
+            "blk": 0,
+            "ast": 4,
+            "pts": 14,
+            "reb": 5
+          }
+        },
+        {
+          "player_id": "28-f-wendtman",
+          "name": "F. Wendtman",
+          "number": "28",
+          "stats": {
+            "": 0,
+            "fgm": 6,
+            "fga": 13,
+            "fg3m": 0,
+            "fg3a": 0,
+            "ftm": 0,
+            "fta": 0,
+            "oreb": 2,
+            "dreb": 1,
+            "fouls": 0,
+            "stl": 1,
+            "turnovers": 0,
+            "blk": 0,
+            "ast": 9,
+            "pts": 14,
+            "reb": 3
+          }
+        },
+        {
+          "player_id": "2-c-beamish",
+          "name": "C. Beamish",
+          "number": "2",
+          "stats": {
+            "": 0,
+            "fgm": 4,
+            "fga": 10,
+            "fg3m": 0,
+            "fg3a": 0,
+            "ftm": 1,
+            "fta": 3,
+            "oreb": 2,
+            "dreb": 3,
+            "fouls": 0,
+            "stl": 0,
+            "turnovers": 2,
+            "blk": 2,
+            "ast": 5,
+            "pts": 10,
+            "reb": 5
+          }
+        },
+        {
+          "player_id": "43-l-denzin",
+          "name": "L. Denzin",
+          "number": "43",
+          "stats": {
+            "": 0,
+            "fgm": 2,
+            "fga": 10,
+            "fg3m": 0,
+            "fg3a": 0,
+            "ftm": 0,
+            "fta": 0,
+            "oreb": 2,
+            "dreb": 5,
+            "fouls": 0,
+            "stl": 2,
+            "turnovers": 1,
+            "blk": 0,
+            "ast": 2,
+            "pts": 5,
+            "reb": 7
+          }
+        },
+        {
+          "player_id": "27-e-todd",
+          "name": "E. Todd",
+          "number": "27",
+          "stats": {
+            "": 0,
+            "fgm": 0,
+            "fga": 0,
+            "fg3m": 0,
+            "fg3a": 0,
+            "ftm": 0,
+            "fta": 0,
+            "oreb": 0,
+            "dreb": 0,
+            "fouls": 0,
+            "stl": 0,
+            "turnovers": 0,
+            "blk": 0,
+            "ast": 0,
+            "pts": 0,
+            "reb": 0
+          }
+        },
+        {
+          "player_id": "10-j-neaves",
+          "name": "J. Neaves",
+          "number": "10",
+          "stats": {
+            "": 0,
+            "fgm": 0,
+            "fga": 0,
+            "fg3m": 0,
+            "fg3a": 0,
+            "ftm": 0,
+            "fta": 0,
+            "oreb": 0,
+            "dreb": 0,
+            "fouls": 0,
+            "stl": 0,
+            "turnovers": 0,
+            "blk": 0,
+            "ast": 0,
+            "pts": 0,
+            "reb": 0
+          }
+        },
+        {
+          "player_id": "1-r-ogle",
+          "name": "R. Ogle",
+          "number": "1",
+          "stats": {
+            "": 0,
+            "fgm": 0,
+            "fga": 0,
+            "fg3m": 0,
+            "fg3a": 0,
+            "ftm": 0,
+            "fta": 0,
+            "oreb": 0,
+            "dreb": 0,
+            "fouls": 0,
+            "stl": 0,
+            "turnovers": 0,
+            "blk": 0,
+            "ast": 0,
+            "pts": 0,
+            "reb": 0
+          }
+        }
+      ],
+      "team_totals": {}
+    }
+  }
+}
