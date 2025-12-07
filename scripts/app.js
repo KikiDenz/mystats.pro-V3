@@ -307,15 +307,15 @@ async function renderTeam(teamIdParam) {
           playersIndex[pid]?.images?.portrait ||
           "assets/player-placeholder.png";
 
-        const leadersHtml = `
+        let leadersHtml = `
           <div class="section">
             <div class="h3-label">Per-Game Leaders${
               group.season ? " – " + group.season : ""
             }</div>
-            <div class="tiles">
-              ${
-                ptsLead
-                  ? `
+            <div class="tiles">`;
+
+        if (ptsLead) {
+          leadersHtml += `
               <div class="card card--bright leader-card">
                 <div class="small">PPG</div>
                 <div class="leader-card-value">${fmt(ptsLead.value)}</div>
@@ -323,12 +323,11 @@ async function renderTeam(teamIdParam) {
                   ptsLead.player_id
                 )}" alt="${label(ptsLead.player_id)}">
                 <div class="small-muted">${label(ptsLead.player_id)}</div>
-              </div>`
-                  : ""
-              }
-              ${
-                rebLead
-                  ? `
+              </div>`;
+        }
+
+        if (rebLead) {
+          leadersHtml += `
               <div class="card card--bright leader-card">
                 <div class="small">RPG</div>
                 <div class="leader-card-value">${fmt(rebLead.value)}</div>
@@ -336,12 +335,11 @@ async function renderTeam(teamIdParam) {
                   rebLead.player_id
                 )}" alt="${label(rebLead.player_id)}">
                 <div class="small-muted">${label(rebLead.player_id)}</div>
-              </div>`
-                  : ""
-              }
-              ${
-                astLead
-                  ? `
+              </div>`;
+        }
+
+        if (astLead) {
+          leadersHtml += `
               <div class="card card--bright leader-card">
                 <div class="small">APG</div>
                 <div class="leader-card-value">${fmt(astLead.value)}</div>
@@ -349,9 +347,10 @@ async function renderTeam(teamIdParam) {
                   astLead.player_id
                 )}" alt="${label(astLead.player_id)}">
                 <div class="small-muted">${label(astLead.player_id)}</div>
-              </div>`
-                  : ""
-              }
+              </div>`;
+        }
+
+        leadersHtml += `
             </div>
           </div>
         `;
