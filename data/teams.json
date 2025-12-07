@@ -1,0 +1,22 @@
+[
+  {
+    "id": "pretty-good",
+    "name": "Pretty Good Basketball Team",
+    "logo": "assets/teams/pretty-good-logo.png",
+    "color": "#1d4ed8",
+    "season_meta": {
+      "current_season": "2025 Spring",
+      "league": "Tuesday B"
+    }
+  },
+  {
+    "id": "chuckers-chuckers",
+    "name": "Chuckers Chuckers",
+    "logo": "assets/teams/chuckers-logo.png",
+    "color": "#f97316",
+    "season_meta": {
+      "current_season": "2025 Spring",
+      "league": "Thursday 2"
+    }
+  }
+]

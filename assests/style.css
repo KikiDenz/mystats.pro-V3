@@ -1,0 +1,355 @@
+/* ================================
+   mystats.pro – StatMuse-style theme
+   ================================ */
+
+:root {
+  --bg: #050812;
+  --bg-alt: #0b101b;
+  --card: #0f172a;
+  --card-strong: #0077ff;
+  --card-strong-text: #ffffff;
+  --border-subtle: rgba(148, 163, 184, 0.25);
+  --accent: #0084ff;
+  --accent-soft: rgba(0, 132, 255, 0.1);
+  --text: #e5eef7;
+  --muted: #9ca3af;
+  --danger: #f97373;
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --shadow-soft: 0 14px 35px rgba(15, 23, 42, 0.75);
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: radial-gradient(circle at top, #020617 0, #020617 40%, #000 100%);
+  color: var(--text);
+}
+
+body {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Layout ===== */
+
+#app {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 14px 14px 24px;
+}
+
+/* sticky-ish header on mobile */
+@media (min-width: 768px) {
+  .container {
+    padding-top: 24px;
+  }
+}
+
+/* ===== Header / hero ===== */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 14px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #0f172a 0%, #020617 60%);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  box-shadow: var(--shadow-soft);
+}
+
+.header--team {
+  position: relative;
+  overflow: hidden;
+}
+
+.header--team::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background: radial-gradient(circle at 0% 0%, var(--accent) 0, transparent 55%);
+  pointer-events: none;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  object-fit: cover;
+  background: #020617;
+  border: 2px solid rgba(15, 23, 42, 0.7);
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ===== Cards & tiles ===== */
+
+.card {
+  border-radius: var(--radius-md);
+  background: var(--card);
+  border: 1px solid var(--border-subtle);
+  padding: 10px 12px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.6);
+}
+
+.card--bright {
+  background: var(--card-strong);
+  color: var(--card-strong-text);
+  border-color: transparent;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0 10px;
+}
+
+@media (min-width: 768px) {
+  .tiles {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.team-tile,
+.player-tile {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.team-tile .badge,
+.player-tile img {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  object-fit: cover;
+  background: #020617;
+}
+
+.team-tile {
+  position: relative;
+  padding-left: 14px;
+}
+
+.team-tile::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 4px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+/* ===== Text helpers ===== */
+
+.small {
+  font-size: 0.9rem;
+}
+
+.small-muted {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.h3-label {
+  margin-top: 16px;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #d1d5db;
+}
+
+/* ===== Tabs ===== */
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 10px 2px 4px;
+  margin-top: 14px;
+}
+
+.tab {
+  flex-shrink: 0;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: #020617;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tab.active {
+  background: var(--accent);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.6);
+}
+
+/* ===== Sections & lists ===== */
+
+.section {
+  margin-top: 12px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ===== Tables ===== */
+
+.scroll-x {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.table thead {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.table th,
+.table td {
+  padding: 7px;
+  text-align: left;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.9);
+}
+
+.table th {
+  font-weight: 600;
+  color: #cbd5f5;
+}
+
+.table tr:nth-child(even) td {
+  background: rgba(15, 23, 42, 0.75);
+}
+
+/* clickable row wrapper */
+.row-link {
+  display: block;
+}
+
+/* ===== Filters ===== */
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 10px;
+}
+
+.filter-row select {
+  background: #020617;
+  color: var(--text);
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  padding: 5px 9px;
+  font-size: 0.8rem;
+}
+
+/* ===== Stat chips ===== */
+
+.stat-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: #bfdbfe;
+  font-size: 0.8rem;
+}
+
+/* ===== Footer ===== */
+
+.footer {
+  margin-top: 22px;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ===== Utilities ===== */
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+/* small screen spacing */
+@media (max-width: 480px) {
+  .header {
+    padding: 12px 10px;
+  }
+}
+
+/* highlight victories/losses in game logs (optional classes) */
+.badge-win,
+.badge-loss {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-win {
+  background: rgba(22, 163, 74, 0.2);
+  color: #bbf7d0;
+}
+
+.badge-loss {
+  background: rgba(220, 38, 38, 0.25);
+  color: #fecaca;
+}

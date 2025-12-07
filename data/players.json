@@ -1,0 +1,101 @@
+[
+  {
+    "id": "kyle-denzin",
+    "display_name": "Kyle Denzin",
+    "name": "Kyle Denzin",
+    "number": 37,
+    "position": "G/F",
+    "teams": ["pretty-good"],
+    "images": {
+      "portrait": "assets/players/kyle-denzin.png"
+    }
+  },
+  {
+    "id": "levi-denzin",
+    "display_name": "Levi Denzin",
+    "name": "Levi Denzin",
+    "number": 43,
+    "position": "G",
+    "teams": ["pretty-good"],
+    "images": {
+      "portrait": "assets/players/levi-denzin.png"
+    }
+  },
+  {
+    "id": "findlay-wendtman",
+    "display_name": "Findlay Wendtman",
+    "name": "Findlay Wendtman",
+    "number": 28,
+    "position": "F",
+    "teams": ["pretty-good", "chuckers-chuckers"],
+    "images": {
+      "portrait": "assets/players/findlay-wendtman.png"
+    }
+  },
+  {
+    "id": "jackson-neaves",
+    "display_name": "Jackson Neaves",
+    "name": "Jackson Neaves",
+    "number": 15,
+    "position": "G",
+    "teams": ["pretty-good", "chuckers-chuckers"],
+    "images": {
+      "portrait": "assets/players/placeholder3.png"
+    }
+  },
+  {
+    "id": "ethan-todd",
+    "display_name": "Ethan Todd",
+    "name": "Ethan Todd",
+    "number": 7,
+    "position": "G",
+    "teams": ["pretty-good"],
+    "images": {
+      "portrait": "assets/players/placeholder7.png"
+    }
+  },
+  {
+    "id": "josh-todd",
+    "display_name": "Josh Todd",
+    "name": "Josh Todd",
+    "number": 24,
+    "position": "F",
+    "teams": ["pretty-good"],
+    "images": {
+      "portrait": "assets/players/josh-todd.png"
+    }
+  },
+  {
+    "id": "callan-beamish",
+    "display_name": "Callan Beamish",
+    "name": "Callan Beamish",
+    "number": 11,
+    "position": "C",
+    "teams": ["pretty-good"],
+    "images": {
+      "portrait": "assets/players/placeholder6.png"
+    }
+  },
+  {
+    "id": "jarren-owen",
+    "display_name": "Jarren Owen",
+    "name": "Jarren Owen",
+    "number": 5,
+    "position": "G",
+    "teams": ["pretty-good"],
+    "images": {
+      "portrait": "assets/players/placeholder5.png"
+    }
+  },
+  {
+    "id": "rhys-ogle",
+    "display_name": "Rhys Ogle",
+    "name": "Rhys Ogle",
+    "number": 14,
+    "position": "F",
+    "teams": ["pretty-good"],
+    "images": {
+      "portrait": "assets/players/placeholder4.png"
+    }
+  }
+]
