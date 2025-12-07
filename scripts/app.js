@@ -863,7 +863,7 @@ async function renderBoxscore(gameId) {
                     p.name || p.player_id
                   }</a></td>
                       <td>${s.pts ?? ""}</td>
-                      <td>${s.reb ?? s.oreb + (s.dreb || 0) || ""}</td>
+                      <td>${(s.reb ?? (s.oreb + (s.dreb || 0))) || ""}</td>
                       <td>${s.ast ?? ""}</td>
                       <td>${fg}</td>
                       <td>${th}</td>
