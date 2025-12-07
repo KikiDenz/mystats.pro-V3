@@ -1,25 +1,12 @@
 #!/usr/bin/env python3
 """
 ============================================================
-mystats.pro – EasyStats HTML Parser
-Option C – Single-team boxscore files
-Rebound Style R2 – OREB + DREB + REB stored
-============================================================
-
-Features:
- - Parses EasyStats HTML with dynamic header mapping
- - Extracts FULL stat categories:
-      FGM/FGA/FG%, 3PM/3PA/3P%, FTM/FTA/FT%, OREB, DREB, REB,
-      AST, STL, BLK, TO, PF, +/- , PTS
- - Removes DNP players (all stats = 0)
- - Correct team assignment (no cross-team bug)
- - Outputs ONE clean boxscore per your team only
- - Produces team totals row
- - Updates games.json
- - Builds derived:
-      player_totals.json
-      team_leaders.json
-      team_records.json
+mystats.pro – Full Parser (FINAL VERSION)
+Option C: Only your team in the boxscore
+Rebounds R2: OREB + DREB + REB stored
+Leaders ranked by per-game averages
+Records stored as single-game highs
+Supports all stats except +/-
 ============================================================
 """
 
@@ -83,7 +70,7 @@ def split_made_attempt(s):
 
 
 def stats_all_zero(stats: dict) -> bool:
-    """DNP = all numeric stats zero."""
+    """DNP if all numeric stats zero."""
     return all((v == 0 for v in stats.values()))
 
 
@@ -92,7 +79,7 @@ def stats_all_zero(stats: dict) -> bool:
 # -----------------------------------------------------------
 
 COLUMN_MAP = {
-    # basic
+    # Shooting
     "fgm": "fgm",
     "fga": "fga",
     "fg%": "fg_pct",
@@ -105,23 +92,23 @@ COLUMN_MAP = {
     "fta": "fta",
     "ft%": "ft_pct",
 
+    # Rebounds
     "oreb": "oreb",
     "dreb": "dreb",
     "reb": "reb",
 
+    # Other stats
     "ast": "ast",
     "stl": "stl",
     "blk": "blk",
     "to": "turnovers",
     "pf": "pf",
-
-    "+/-": "plusminus",
     "pts": "pts",
 }
 
 
 def normalize_header(h):
-    """Normalize EasyStats column labels."""
+    """Normalize EasyStats column text."""
     h = h.lower().strip()
     h = h.replace("3pt", "3p")
     h = h.replace("fg3", "3p")
@@ -130,32 +117,26 @@ def normalize_header(h):
 
 
 def detect_columns(table):
-    """Return a list mapping column index → internal stat key."""
     headers = [normalize_header(th.get_text(strip=True)) for th in table.find_all("th")]
-    mapping = []
-
-    for h in headers:
-        mapping.append(COLUMN_MAP.get(h, None))
-    return mapping
+    return [COLUMN_MAP.get(h, None) for h in headers]
 
 
 # -----------------------------------------------------------
-# Parse a single table
+# Parse a table into player rows
 # -----------------------------------------------------------
 
 def parse_player_table(table):
     column_map = detect_columns(table)
     players = []
 
-    rows = table.find_all("tr")
-    for tr in rows:
+    for tr in table.find_all("tr"):
         tds = tr.find_all("td")
         if not tds:
             continue
 
         raw_name = tds[0].get_text(strip=True)
         if raw_name.lower().startswith("total"):
-            continue  # skip totals in HTML
+            continue
 
         # Extract number + name
         m = re.match(r"#?(\d+)\s+(.*)", raw_name)
@@ -171,54 +152,51 @@ def parse_player_table(table):
         # Build stats
         stats = {}
         for i, td in enumerate(tds[1:], start=1):
-            key = column_map[i] if i < len(column_map) else None
+            stat_key = column_map[i] if i < len(column_map) else None
             val = td.get_text(strip=True)
 
-            if key is None:
+            if stat_key is None:
                 continue
 
-            if key in ("fgm", "fga"):
-                # FGM/FGA columns appear separately OR as a combined "FG" column
+            # parse M-A form
+            if stat_key in ("fgm", "fga"):
                 if "-" in val:
                     fgm, fga = split_made_attempt(val)
-                    stats["fgm"] = fgm
-                    stats["fga"] = fga
+                    stats["fgm"], stats["fga"] = fgm, fga
                 else:
-                    stats[key] = to_num(val)
+                    stats[stat_key] = to_num(val)
 
-            elif key in ("fg3m", "fg3a"):
+            elif stat_key in ("fg3m", "fg3a"):
                 if "-" in val:
                     m3, a3 = split_made_attempt(val)
-                    stats["fg3m"] = m3
-                    stats["fg3a"] = a3
+                    stats["fg3m"], stats["fg3a"] = m3, a3
                 else:
-                    stats[key] = to_num(val)
+                    stats[stat_key] = to_num(val)
 
-            elif key in ("ftm", "fta"):
+            elif stat_key in ("ftm", "fta"):
                 if "-" in val:
                     ftm, fta = split_made_attempt(val)
-                    stats["ftm"] = ftm
-                    stats["fta"] = fta
+                    stats["ftm"], stats["fta"] = ftm, fta
                 else:
-                    stats[key] = to_num(val)
+                    stats[stat_key] = to_num(val)
 
-            elif key.endswith("_pct"):
-                stats[key] = to_num(val)  # numeric percent
+            elif stat_key.endswith("_pct"):
+                stats[stat_key] = to_num(val)
 
             else:
-                stats[key] = to_num(val)
+                stats[stat_key] = to_num(val)
 
-        # Fill missing
+        # Fill missing stats
         required = [
-            "fgm","fga","fg_pct",
-            "fg3m","fg3a","fg3_pct",
-            "ftm","fta","ft_pct",
-            "oreb","dreb","reb",
-            "ast","stl","blk","turnovers","pf",
-            "plusminus","pts"
+            "fgm", "fga", "fg_pct",
+            "fg3m", "fg3a", "fg3_pct",
+            "ftm", "fta", "ft_pct",
+            "oreb", "dreb", "reb",
+            "ast", "stl", "blk", "turnovers", "pf",
+            "pts"
         ]
-        for k in required:
-            stats.setdefault(k, 0)
+        for r in required:
+            stats.setdefault(r, 0)
 
         # Skip DNP
         if stats_all_zero(stats):
@@ -235,41 +213,61 @@ def parse_player_table(table):
 
 
 # -----------------------------------------------------------
-# Derived building
+# Load players.json → map pid → team_ids
 # -----------------------------------------------------------
 
-def build_player_totals(boxscores):
-    out = {}
+def load_players_index():
+    path = DATA / "players.json"
+    arr = read_json(path, [])
+    index = {}
+
+    for p in arr:
+        pid = p["id"]
+        index[pid] = {
+            "teams": p.get("teams", []),
+            "name": p.get("display_name", p.get("name", pid)),
+        }
+
+    return index
+
+
+# -----------------------------------------------------------
+# Derived: player totals + averages
+# -----------------------------------------------------------
+
+def build_player_totals(boxscores, players_index):
+    results = {}
+
     for g in boxscores.values():
         season = g["season"]
         gtype = g["type"]
-        tid = g["team_id"]
 
         for p in g["players"]:
             pid = p["player_id"]
+            st = p["stats"]
             key = (pid, season, gtype)
 
-            if key not in out:
-                out[key] = {
+            if key not in results:
+                results[key] = {
                     "player_id": pid,
                     "season": season,
                     "type": gtype,
                     "games": 0,
-                    "sum": {k: 0 for k in p["stats"]}
+                    "sum": {k: 0 for k in st}
                 }
 
-            out[key]["games"] += 1
-            for k, v in p["stats"].items():
-                out[key]["sum"][k] += v
+            results[key]["games"] += 1
+            for k, v in st.items():
+                results[key]["sum"][k] += v
 
     # Convert to averages
-    result = []
-    for (pid, season, gtype), rec in out.items():
+    output = []
+    for (pid, season, gtype), rec in results.items():
         g = rec["games"]
         sums = rec["sum"]
         avg = {k: (v / g if g > 0 else 0) for k, v in sums.items()}
 
-        result.append({
+        output.append({
             "player_id": pid,
             "season": season,
             "type": gtype,
@@ -277,23 +275,105 @@ def build_player_totals(boxscores):
             "totals": sums,
             "averages": avg
         })
-    return result
+
+    return output
 
 
-def build_team_leaders(player_totals):
-    """Top-3 leaders per stat, per team, per season."""
-    by_team = {}
+# -----------------------------------------------------------
+# Derived: per-game team leaders
+# -----------------------------------------------------------
 
-    # We do not know which team a player is on from totals alone,
-    # so in YOUR system you will have a players.json mapping.
-    # For now: leaders stay empty until you provide players.json.
-    return []
+LEADER_STATS = [
+    "pts", "fgm", "fga", "fg_pct",
+    "fg3m", "fg3a", "fg3_pct",
+    "ftm", "fta", "ft_pct",
+    "oreb", "dreb", "reb",
+    "ast", "stl", "blk", "turnovers", "pf"
+]
 
 
-def build_team_records(boxscores):
-    """Single-game records for tracked stats."""
-    # Similar note as above: records depend on team_id mapping.
-    return []
+def build_team_leaders(player_totals, players_index):
+    leaders_by_team = {}
+
+    # Group totals by team+season
+    for rec in player_totals:
+        pid = rec["player_id"]
+        season = rec["season"]
+        gtype = rec["type"]
+
+        # Find the player's teams
+        teams = players_index.get(pid, {}).get("teams", [])
+        for tid in teams:
+            key = (tid, season, gtype)
+            if key not in leaders_by_team:
+                leaders_by_team[key] = {s: [] for s in LEADER_STATS}
+
+            for stat in LEADER_STATS:
+                value = rec["averages"].get(stat, 0)
+                leaders_by_team[key][stat].append({
+                    "player_id": pid,
+                    "value": value
+                })
+
+    # Sort and trim leaders
+    final_output = []
+    for (tid, season, gtype), stat_dict in leaders_by_team.items():
+        for stat, arr in stat_dict.items():
+            ranked = sorted(arr, key=lambda x: x["value"], reverse=True)
+            final_output.append({
+                "team_id": tid,
+                "season": season,
+                "type": gtype,
+                "stat": stat,
+                "leaders": ranked[:10]
+            })
+
+    return final_output
+
+
+# -----------------------------------------------------------
+# Derived: single-game team records
+# -----------------------------------------------------------
+
+def build_team_records(boxscores, players_index):
+    records = {}
+
+    for g in boxscores.values():
+        tid = g["team_id"]
+        season = g["season"]
+        date = g["date"]
+
+        for p in g["players"]:
+            pid = p["player_id"]
+            st = p["stats"]
+
+            for stat in LEADER_STATS:
+                val = st.get(stat, 0)
+                if val == 0:
+                    continue
+
+                key = (tid, season, stat)
+                if key not in records:
+                    records[key] = []
+
+                records[key].append({
+                    "player_id": pid,
+                    "value": val,
+                    "date": date
+                })
+
+    # sort each record list
+    output = []
+    for (tid, season, stat), arr in records.items():
+        ranked = sorted(arr, key=lambda x: x["value"], reverse=True)
+        output.append({
+            "team_id": tid,
+            "season": season,
+            "stat": stat,
+            "records": ranked[:10]
+        })
+
+    return output
 
 
 # -----------------------------------------------------------
@@ -305,18 +385,18 @@ def main():
     parser.add_argument("htmlfile")
     parser.add_argument("--date")
     parser.add_argument("--season")
-    parser.add_argument("--type", choices=["regular","playoff","preseason"])
-    parser.add_argument("--team-id", help="Your team ID, ex: pretty-good")
-    parser.add_argument("--team-name", help="Pretty name from players.json")
+    parser.add_argument("--type", choices=["regular", "playoff", "preseason"])
+    parser.add_argument("--team-id")
+    parser.add_argument("--team-name")
     parser.add_argument("--score")
-    parser.add_argument("--opp", help="Opponent name")
+    parser.add_argument("--opp")
     parser.add_argument("--opp-score")
     args = parser.parse_args()
 
     html = Path(args.htmlfile).read_text(encoding="utf8")
     soup = BeautifulSoup(html, "lxml")
 
-    # ========== DATE ==========
+    # ----- DATE -----
     if args.date:
         try:
             d = datetime.strptime(args.date, "%d/%m/%Y")
@@ -326,33 +406,33 @@ def main():
         d = datetime.now()
     date_str = d.strftime("%Y-%m-%d")
 
-    # ========== SEASON / TYPE ==========
-    season = args.season or input("Season (e.g. 2025 or 2025 Spring): ").strip()
-    if season == "":
+    # ----- SEASON / TYPE -----
+    season = args.season or input("Season: ").strip()
+    if not season:
         season = "2025"
 
-    gtype = args.type or input("Game type (regular/playoff/preseason): ").strip()
-    if gtype == "":
+    gtype = args.type or input("Game type (regular/playoff): ").strip()
+    if not gtype:
         gtype = "regular"
 
-    # ========== TEAM INFO ==========
-    team_id = args.team-id or input("Team ID (ex: pretty-good): ").strip().lower().replace(" ", "-")
-    team_name = args.team_name or input("Team name (ex: Pretty Good Basketball Team): ").strip()
-    opponent = args.opp or input("Opponent name: ").strip()
+    # ----- TEAM INFO -----
+    team_id = args.team_id or input("Team ID (example: pretty-good): ").strip().lower().replace(" ", "-")
+    team_name = args.team_name or input("Team Name: ").strip()
+    opponent = args.opp or input("Opponent Name: ").strip()
 
-    score = int(args.score or input("Team score: "))
-    opp_score = int(args.opp_score or input("Opponent score: "))
+    score = int(args.score or input("Team Score: "))
+    opp_score = int(args.opp_score or input("Opponent Score: "))
 
-    # ========== PARSE HTML TABLES ==========
+    # ----- PARSE HTML -----
     tables = soup.find_all("table", id="stats")
-    if len(tables) == 0:
-        print("ERROR: No <table id='stats'> found.")
+    if not tables:
+        print("ERROR: No table with id='stats'")
         return
 
-    # We take the FIRST table for your team.
+    # Take first table as your team's stats
     players = parse_player_table(tables[0])
 
-    # Compute REB if not given explicitly
+    # Compute REB (R2)
     for p in players:
         st = p["stats"]
         st["reb"] = st["oreb"] + st["dreb"]
@@ -379,14 +459,13 @@ def main():
         "team_totals": totals
     }
 
-    # Write boxscore
+    # Write boxscore file
     out_file = BOX / f"{gid}.json"
     write_json(out_file, box)
     print("Wrote boxscore:", out_file)
 
-    # ========== update games.json ==========
-    games_path = DATA / "games.json"
-    games = read_json(games_path, [])
+    # ----- Update games.json -----
+    games = read_json(DATA / "games.json", [])
     games.append({
         "id": gid,
         "team_id": team_id,
@@ -398,22 +477,24 @@ def main():
         "opp_score": opp_score,
         "boxscore_json": str(out_file)
     })
-    write_json(games_path, games)
+    write_json(DATA / "games.json", games)
 
-    # ========== DERIVED ==========
-    print("Rebuilding derived stats...")
+    # ----- Build derived -----
+    print("Building derived stats...")
 
-    # load all boxscores for your team only
-    all_boxes = {}
-    for f in BOX.glob("*.json"):
-        data = read_json(f, None)
-        if data:
-            if data["team_id"] == team_id:
-                all_boxes[data["game_id"]] = data
+    players_index = load_players_index()
 
-    player_totals = build_player_totals(all_boxes)
-    team_leaders = build_team_leaders(player_totals)
-    team_records = build_team_records(all_boxes)
+    # load all boxscores for this team
+    all_boxes = {
+        g["game_id"]: g
+        for f in BOX.glob("*.json")
+        for g in [read_json(f, None)]
+        if g and g["team_id"] == team_id
+    }
+
+    player_totals = build_player_totals(all_boxes, players_index)
+    team_leaders = build_team_leaders(player_totals, players_index)
+    team_records = build_team_records(all_boxes, players_index)
 
     write_json(DER / "player_totals.json", player_totals)
     write_json(DER / "team_leaders.json", team_leaders)
