@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": "game-2025-12-02-monstars-v-pretty-good-basketball-team",
+    "date": "2025-12-02",
+    "season": "2025 Spring",
+    "type": "regular",
+    "away_team": "monstars",
+    "home_team": "Pretty Good Basketball Team",
+    "away_score": 40,
+    "home_score": 79,
+    "boxscore_json": "data\\boxscores\\game-2025-12-02-monstars-v-pretty-good-basketball-team.json"
+  }
+]

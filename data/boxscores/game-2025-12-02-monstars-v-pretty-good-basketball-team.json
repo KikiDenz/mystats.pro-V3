@@ -1,0 +1,139 @@
+{
+  "game_id": "game-2025-12-02-monstars-v-pretty-good-basketball-team",
+  "date": "2025-12-02",
+  "season": "2025 Spring",
+  "type": "regular",
+  "away_team": "monstars",
+  "home_team": "Pretty Good Basketball Team",
+  "away_score": 40,
+  "home_score": 79,
+  "teams": {
+    "monstars": {
+      "players": [
+        {
+          "player_id": "11-j-todd",
+          "name": "J. Todd",
+          "number": "11",
+          "stats": {
+            "fgm": 0,
+            "fga": 0,
+            "fg3m": 0,
+            "fg3a": 0,
+            "ftm": 0,
+            "fta": 0,
+            "oreb": 6,
+            "dreb": 0,
+            "stl": 1,
+            "turnovers": 1,
+            "blk": 3,
+            "ast": 21,
+            "pts": 0
+          }
+        },
+        {
+          "player_id": "5-j-owen",
+          "name": "J. Owen",
+          "number": "5",
+          "stats": {
+            "fgm": 0,
+            "fga": 0,
+            "fg3m": 0,
+            "fg3a": 0,
+            "ftm": 0,
+            "fta": 0,
+            "oreb": 7,
+            "dreb": 0,
+            "stl": 2,
+            "turnovers": 0,
+            "blk": 3,
+            "ast": 15,
+            "pts": 0
+          }
+        },
+        {
+          "player_id": "37-k-denzin",
+          "name": "K. Denzin",
+          "number": "37",
+          "stats": {
+            "fgm": 0,
+            "fga": 0,
+            "fg3m": 0,
+            "fg3a": 0,
+            "ftm": 0,
+            "fta": 0,
+            "oreb": 2,
+            "dreb": 0,
+            "stl": 2,
+            "turnovers": 0,
+            "blk": 4,
+            "ast": 14,
+            "pts": 0
+          }
+        },
+        {
+          "player_id": "28-f-wendtman",
+          "name": "F. Wendtman",
+          "number": "28",
+          "stats": {
+            "fgm": 0,
+            "fga": 0,
+            "fg3m": 0,
+            "fg3a": 0,
+            "ftm": 0,
+            "fta": 0,
+            "oreb": 1,
+            "dreb": 0,
+            "stl": 0,
+            "turnovers": 0,
+            "blk": 9,
+            "ast": 14,
+            "pts": 0
+          }
+        },
+        {
+          "player_id": "2-c-beamish",
+          "name": "C. Beamish",
+          "number": "2",
+          "stats": {
+            "fgm": 0,
+            "fga": 0,
+            "fg3m": 0,
+            "fg3a": 0,
+            "ftm": 0,
+            "fta": 0,
+            "oreb": 3,
+            "dreb": 0,
+            "stl": 2,
+            "turnovers": 2,
+            "blk": 5,
+            "ast": 10,
+            "pts": 0
+          }
+        },
+        {
+          "player_id": "43-l-denzin",
+          "name": "L. Denzin",
+          "number": "43",
+          "stats": {
+            "fgm": 0,
+            "fga": 0,
+            "fg3m": 0,
+            "fg3a": 0,
+            "ftm": 0,
+            "fta": 0,
+            "oreb": 5,
+            "dreb": 0,
+            "stl": 1,
+            "turnovers": 0,
+            "blk": 2,
+            "ast": 5,
+            "pts": 0
+          }
+        }
+      ]
+    },
+    "Pretty Good Basketball Team": {
+      "players": []
+    }
+  }
+}
